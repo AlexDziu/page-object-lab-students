@@ -11,7 +11,7 @@ public class RegistrationTest extends BaseTest {
   private MainPage mainPage;
   String firstName1 = "Alex";
   String lastName1 = "Alex";
-  String email1 = "alex@gmail.com";
+  String email1 = "alex@gmai122121l.com";
   String telephone1 = "0935554444";
   String password1 = "444580";
   String passwordConfirm1 = "444580";

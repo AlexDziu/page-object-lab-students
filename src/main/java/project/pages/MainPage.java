@@ -3,7 +3,7 @@ package project.pages;
 import org.openqa.selenium.By;
 
 public class MainPage extends BasePage {
-  private By myAccount = By.cssSelector("dropdown open");
+  private By myAccount = By.xpath("//a[@title='My Account']");
   private By register = By.xpath("//li[@class='dropdown open']//a[text()='Register']");
 
 

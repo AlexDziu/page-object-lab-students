@@ -10,7 +10,7 @@ public class RegisterAccountPage extends BasePage {
     private By passwordConfirm = By.xpath("//input[@id='input-confirm']");
     private By telephone = By.xpath("//input[@id='input-telephone']");
     private By privacyPolicy = By.xpath("//input[@name='agree']");
-    private By buttonContinue = By.cssSelector("btn btn-primary");
+    private By buttonContinue = By.xpath("//input[@value='Continue']");
 
     public RegisterAccountPage setFirstName(String inputFirstName) {
         find(firstName).sendKeys(inputFirstName);
