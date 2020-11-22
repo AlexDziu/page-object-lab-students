@@ -29,4 +29,5 @@ public abstract class BasePage {
     return new WebDriverWait(getDriver(),seconds)
             .until(ExpectedConditions.visibilityOfElementLocated(locator));
   }
+
 }

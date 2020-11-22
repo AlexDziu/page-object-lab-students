@@ -11,6 +11,8 @@ public class RegisterAccountPage extends BasePage {
     private By telephone = By.xpath("//input[@id='input-telephone']");
     private By privacyPolicy = By.xpath("//input[@name='agree']");
     private By buttonContinue = By.xpath("//input[@value='Continue']");
+    private By textMessage = By.xpath("//div[text()='First Name must be between 1 and 32 characters!']");
+
 
     public RegisterAccountPage setFirstName(String inputFirstName) {
         find(firstName).sendKeys(inputFirstName);
@@ -52,9 +54,14 @@ public class RegisterAccountPage extends BasePage {
         if (getDriver().getCurrentUrl().contains("register")) {
             return new RegisterAccountPage();
         } else {
-            return new AccountCreated();
+            return new CreatedAccountPage();
         }
 
+    }
+
+    public String textAppears() {
+        waitUntilVisible(textMessage, 5);
+        return find(textMessage).getText();
     }
 
 
