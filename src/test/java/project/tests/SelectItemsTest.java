@@ -2,9 +2,12 @@ package project.tests;
 
 import static org.assertj.core.api.Assertions.*;
 
+import components.BoxProduct;
 import org.junit.Test;
 import project.pages.MainPage;
 import project.pages.MyWishListPage;
+
+import java.util.List;
 
 public class SelectItemsTest extends BaseTest {
 
@@ -17,15 +20,16 @@ public class SelectItemsTest extends BaseTest {
     @Test
     public void checkItems() {
         mainPage = new MainPage();
-        MyWishListPage myWishListPage = mainPage.openMainPage().clickOnMyAccount()
+        List<BoxProduct> productFromPage = mainPage.openMainPage().clickOnMyAccount()
                 .waitButtonLoginVisible()
                 .inputEmail(email)
                 .inputPassword(password)
                 .clickButtonLogin()
-                .selectMonitors().buttonAddApple().buttonAddSamsung()
-                .clickOnWishList();
-        assertThat(myWishListPage.checkSamsungAppears()).isEqualTo(expectedTextSamsung);
-        assertThat(myWishListPage.checkAppleAppears()).isEqualTo(expectedTextApple);
+                .getTopMenu()
+                .chooseItems()
+                .getProductFromPage();
+//        assertThat(myWishListPage.checkSamsungAppears()).isEqualTo(expectedTextSamsung);
+//        assertThat(myWishListPage.checkAppleAppears()).isEqualTo(expectedTextApple);
 
     }
 
