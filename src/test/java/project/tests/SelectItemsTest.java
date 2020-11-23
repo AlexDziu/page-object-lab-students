@@ -31,6 +31,7 @@ public class SelectItemsTest extends BaseTest {
 //        assertThat(myWishListPage.checkSamsungAppears()).isEqualTo(expectedTextSamsung);
 //        assertThat(myWishListPage.checkAppleAppears()).isEqualTo(expectedTextApple);
 
+        //div[@class='button-group']//button[2]
     }
 
 }
