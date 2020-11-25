@@ -1,37 +1,45 @@
 package project.tests;
 
-import static org.assertj.core.api.Assertions.*;
-
-import components.BoxProduct;
+import components.MenuCategories;
+import components.MenuSubCategories;
+import components.MyWishListItems;
+import components.ProductBox;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import project.pages.MainPage;
-import project.pages.MyWishListPage;
 
 import java.util.List;
+
+import static components.MenuCategories.*;
+import static components.MenuSubCategories.*;
 
 public class SelectItemsTest extends BaseTest {
 
     private MainPage mainPage;
     String email = "sashagood12121986@gmail.com";
     String password = "1234";
-    String expectedTextApple = "Apple Cinema 30\"";
-    String expectedTextSamsung = "Samsung SyncMaster 941BW";
 
     @Test
     public void checkItems() {
         mainPage = new MainPage();
-        List<BoxProduct> productFromPage = mainPage.openMainPage().clickOnMyAccount()
-                .waitButtonLoginVisible()
+
+        List<String> myWishListItems = mainPage.openMainPage()
+                .getTopBar()
+                .clickOnMyAccountDropDown()
+                .selectLogin()
                 .inputEmail(email)
                 .inputPassword(password)
                 .clickButtonLogin()
                 .getTopMenu()
-                .chooseItems()
-                .getProductFromPage();
-//        assertThat(myWishListPage.checkSamsungAppears()).isEqualTo(expectedTextSamsung);
-//        assertThat(myWishListPage.checkAppleAppears()).isEqualTo(expectedTextApple);
+                .hoverMouseOverMenuItem(COMPONENTS)
+                .selectSubCategory(MONITORS)
+                .addToWishListFollowingProducts("Apple Cinema 30\"", "Samsung SyncMaster 941BW")
+                .getTopBar()
+                .clickOnWishListTotal()
+                .getNamesFromWishListItems();
 
-        //div[@class='button-group']//button[2]
+        Assertions.assertThat(myWishListItems)
+                .contains("Apple Cinema 30\"", "Samsung SyncMaster 941BW");
     }
 
 }

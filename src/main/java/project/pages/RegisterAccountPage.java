@@ -39,7 +39,7 @@ public class RegisterAccountPage extends BasePage {
         return this;
     }
 
-    public RegisterAccountPage setTelephone(String inputTelephone) {
+    public RegisterAccountPage setPhone(String inputTelephone) {
         find(telephone).sendKeys(inputTelephone);
         return this;
     }
@@ -54,7 +54,7 @@ public class RegisterAccountPage extends BasePage {
         if (getDriver().getCurrentUrl().contains("register")) {
             return new RegisterAccountPage();
         } else {
-            return new CreatedAccountPage();
+            return new CreatedPage();
         }
 
     }

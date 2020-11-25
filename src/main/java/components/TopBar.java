@@ -1,11 +1,48 @@
 package components;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import project.pages.LoginPage;
+import project.pages.WishListPage;
+import project.pages.RegisterAccountPage;
 
 public class TopBar {
-    private static WebDriver driver;
+    private WebDriver driver;
+    private WebDriverWait wait;
+    private Actions actions;
 
-    public TopBar(WebDriver webDriver) {
-        driver = webDriver;
+    public TopBar(WebDriver driver) {
+        this.driver = driver;
+        wait = new WebDriverWait(driver, 5);
+        actions = new Actions(driver);
+    }
+
+    private By myAccountDropDown = By.xpath("//span[@class='caret']");
+    private By registerLink = By.xpath("//ul//a[text()='Register']");
+    private By loginLink = By.xpath("//ul//a[text()='Login']");
+    private By wishListTotal = By.xpath("//a[@id='wishlist-total']");
+
+    public TopBar clickOnMyAccountDropDown() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(myAccountDropDown)).click();
+        return this;
+    }
+
+    public RegisterAccountPage selectRegister() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(registerLink)).click();
+        return new RegisterAccountPage();
+    }
+
+    public LoginPage selectLogin() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(loginLink)).click();
+        return new LoginPage();
+    }
+
+    public WishListPage clickOnWishListTotal() {
+        actions.moveToElement(driver.findElement(wishListTotal));
+        driver.findElement(wishListTotal).click();
+        return new WishListPage();
     }
 }

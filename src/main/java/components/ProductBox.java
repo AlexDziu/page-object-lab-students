@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-public class BoxProduct {
+public class ProductBox {
 
     private WebDriver driver;
 
-    public BoxProduct(WebDriver webDriver) {
-        driver = webDriver;
+    public ProductBox(WebDriver webDriver) {
+        this.driver = webDriver;
     }
 
     private WebElement image;
@@ -25,7 +25,7 @@ public class BoxProduct {
     private WebElement addToWishList;
     private WebElement compareThisProduct;
 
-    public BoxProduct(WebElement image, String nameItem, String direction, String price, WebElement addToCard, WebElement addToWishList, WebElement compareThisProduct) {
+    public ProductBox(WebElement image, String nameItem, String direction, String price, WebElement addToCard, WebElement addToWishList, WebElement compareThisProduct) {
         this.image = image;
         this.nameItem = nameItem;
         this.direction = direction;
@@ -35,8 +35,8 @@ public class BoxProduct {
         this.compareThisProduct = compareThisProduct;
     }
 
-    public List<BoxProduct> getAllProducts(By locator) {
-        List<BoxProduct> list = new ArrayList<>();
+    public List<ProductBox> getAllProducts(By locator) {
+        List<ProductBox> list = new ArrayList<>();
         List<WebElement> elements = driver.findElements(locator);
         for (WebElement element : elements) {
             WebElement image = element.findElement(By.xpath(".//img[@class='img-responsive']"));
@@ -45,8 +45,8 @@ public class BoxProduct {
             String price = element.findElement(By.xpath(".//span[@class='price-tax']")).getText();
             WebElement addToCard = element.findElement(By.xpath(".//div[@class='button-group']/button[1]"));
             WebElement addToWishList = element.findElement(By.xpath(".//div[@class='button-group']/button[2]"));
-            BoxProduct boxProduct = new BoxProduct(image,nameItem,direction,price,addToCard,addToWishList,null);
-            list.add(boxProduct);
+            ProductBox productBox = new ProductBox(image, nameItem, direction, price, addToCard, addToWishList, null);
+            list.add(productBox);
         }
         return list;
 
