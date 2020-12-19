@@ -7,10 +7,10 @@ import java.util.List;
 
 public class ProductsPage extends BasePage {
 
-    private ProductBox boxProduct;
-    private By boxContainers = By.xpath("//div[@class='product-thumb']");
-    private By wishListSuccessAddMessage = By.xpath("//div[contains(@class,'alert-success')]//a[1]");
-    private By closeSuccessMessageButton = By.xpath("//button[@class='close']");
+    private final ProductBox boxProduct;
+    private final By boxContainers = By.xpath("//div[@class='product-thumb']");
+    private final By wishListSuccessAddMessage = By.xpath("//div[contains(@class,'alert-success')]//a[1]");
+    private final By closeSuccessMessageButton = By.xpath("//button[@class='close']");
 
     public ProductsPage() {
         this.boxProduct = new ProductBox(driver);

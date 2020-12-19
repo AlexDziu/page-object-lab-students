@@ -1,6 +1,5 @@
 package project.tests;
 
-
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import project.pages.CreatedPage;

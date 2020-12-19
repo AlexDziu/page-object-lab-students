@@ -10,8 +10,8 @@ import java.util.List;
 @Getter
 public class WishListPage extends BasePage {
 
-    private MyWishListItems myWishListItems;
-    private By myWishListTable = By.xpath("//div[@class='table-responsive']//table//tbody");
+    private final MyWishListItems myWishListItems;
+    private final By myWishListTable = By.xpath("//div[@class='table-responsive']//table//tbody");
 
     public WishListPage() {
         this.myWishListItems = new MyWishListItems(driver);

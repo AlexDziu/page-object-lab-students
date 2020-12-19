@@ -13,23 +13,20 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 @Getter
 public abstract class BasePage {
-    private TopMenu topMenu;
-    private TopBar topBar;
+    private final TopMenu topMenu;
+    private final TopBar topBar;
 
     public BasePage() {
         this.topBar = new TopBar(driver);
         this.topMenu = new TopMenu(driver);
     }
 
-    //protected WebDriver variable (only classes in same folder (pages) will get driver)
     protected static WebDriver driver;
 
-    //set driver for base page
     public static void setDriver(WebDriver webDriver) {
         driver = webDriver;
     }
 
-    //method for get driver from any page
     public static WebDriver getDriver() {
         return driver;
     }

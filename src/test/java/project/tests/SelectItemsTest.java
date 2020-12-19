@@ -1,9 +1,5 @@
 package project.tests;
 
-import components.MenuCategories;
-import components.MenuSubCategories;
-import components.MyWishListItems;
-import components.ProductBox;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import project.pages.MainPage;

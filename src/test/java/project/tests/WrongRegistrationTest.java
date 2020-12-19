@@ -1,6 +1,5 @@
 package project.tests;
 
-
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import project.pages.MainPage;
@@ -17,7 +16,7 @@ public class WrongRegistrationTest extends BaseTest {
     String expectedText = "First Name must be between 1 and 32 characters!";
 
     @Test
-    public void registrationWithoutCredentials() {
+    public void registrationWithoutValidCredentials() {
         mainPage = new MainPage();
         RegisterAccountPage registerAccountPage = (RegisterAccountPage) mainPage.openMainPage()
                 .getTopBar()

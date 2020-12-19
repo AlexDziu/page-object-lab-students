@@ -10,15 +10,15 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 
 
 public class TopMenu {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public TopMenu(WebDriver driver) {
         this.driver = driver;
     }
 
-    private By selectComponents = By.xpath("//a[text()='Components']");
-    private By selectMonitors = By.xpath("//a[contains(text(),'Monitors')]");
-    private By desktopsCategoryLink = By.xpath("//a[text()='Desktops']");
+    private final By selectComponents = By.xpath("//a[text()='Components']");
+    private final By selectMonitors = By.xpath("//a[contains(text(),'Monitors')]");
+    private final By desktopsCategoryLink = By.xpath("//a[text()='Desktops']");
 
     public TopMenu hoverMouseOverMenuItem(MenuCategories category) {
         Actions actions = new Actions(driver);

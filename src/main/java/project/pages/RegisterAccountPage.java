@@ -3,15 +3,16 @@ package project.pages;
 import org.openqa.selenium.By;
 
 public class RegisterAccountPage extends BasePage {
-    private By firstName = By.xpath("//input[@id='input-firstname']");
-    private By lastName = By.xpath("//input[@id='input-lastname']");
-    private By email = By.xpath("//input[@id='input-email']");
-    private By password = By.xpath("//input[@id='input-password']");
-    private By passwordConfirm = By.xpath("//input[@id='input-confirm']");
-    private By telephone = By.xpath("//input[@id='input-telephone']");
-    private By privacyPolicy = By.xpath("//input[@name='agree']");
-    private By buttonContinue = By.xpath("//input[@value='Continue']");
-    private By textMessage = By.xpath("//div[text()='First Name must be between 1 and 32 characters!']");
+
+    private final By firstName = By.xpath("//input[@id='input-firstname']");
+    private final By lastName = By.xpath("//input[@id='input-lastname']");
+    private final By email = By.xpath("//input[@id='input-email']");
+    private final By password = By.xpath("//input[@id='input-password']");
+    private final By passwordConfirm = By.xpath("//input[@id='input-confirm']");
+    private final By telephone = By.xpath("//input[@id='input-telephone']");
+    private final By privacyPolicy = By.xpath("//input[@name='agree']");
+    private final By buttonContinue = By.xpath("//input[@value='Continue']");
+    private final By textMessage = By.xpath("//div[text()='First Name must be between 1 and 32 characters!']");
 
 
     public RegisterAccountPage setFirstName(String inputFirstName) {

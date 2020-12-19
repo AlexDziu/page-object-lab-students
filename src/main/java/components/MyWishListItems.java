@@ -35,7 +35,6 @@ public class MyWishListItems {
         this.removeButton = removeButton;
     }
 
-
     public List<MyWishListItems> getAllItems(By table) {
         List<MyWishListItems> myWishListItems = new ArrayList<>();
         List<WebElement> rows = driver.findElement(table).findElements(By.xpath(".//tr"));

@@ -10,9 +10,9 @@ import project.pages.WishListPage;
 import project.pages.RegisterAccountPage;
 
 public class TopBar {
-    private WebDriver driver;
-    private WebDriverWait wait;
-    private Actions actions;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
+    private final Actions actions;
 
     public TopBar(WebDriver driver) {
         this.driver = driver;
@@ -20,10 +20,10 @@ public class TopBar {
         actions = new Actions(driver);
     }
 
-    private By myAccountDropDown = By.xpath("//span[@class='caret']");
-    private By registerLink = By.xpath("//ul//a[text()='Register']");
-    private By loginLink = By.xpath("//ul//a[text()='Login']");
-    private By wishListTotal = By.xpath("//a[@id='wishlist-total']");
+    private final By myAccountDropDown = By.xpath("//span[@class='caret']");
+    private final By registerLink = By.xpath("//ul//a[text()='Register']");
+    private final By loginLink = By.xpath("//ul//a[text()='Login']");
+    private final By wishListTotal = By.xpath("//a[@id='wishlist-total']");
 
     public TopBar clickOnMyAccountDropDown() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(myAccountDropDown)).click();
